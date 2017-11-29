@@ -7,4 +7,4 @@ def index():
 
 @app.route('/members')
 def about():
-    return render_template('member.html')
+    return render_template('members.html')
