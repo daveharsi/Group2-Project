@@ -5,12 +5,25 @@
 {% endblock%}
 {% block page_content%}
 
-  <div class="container">
-    <h1 class="mt-5"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Members</h1>
-    <ul>
-      <li>Devarshi Patel: ddpatel@udel.edu</li>
-      <li>Yuting Dong: andydong@udel.edu<img src="{{ url_for('static', filename='img/yuting.jpg') }}" class="rounded mx-auto d-block" width="100" height="140"></li>
-      <li>Sean Rubin: seanrubi@udel.edu<img src="{{ url_for('static', filename='img/SeanFace.png') }}" class="rounded mx-auto d-block" width="140" height="140"></li>
-    </ul>
+
+<div class="container">
+  <h1 class="mt-5"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Members</h1>
+
+  <div class="outer">
+    <p>Devarshi Patel: ddpatel@udel.edu</p>
+    <img src="{{ url_for('static', filename='img/Devarshi.jpg') }}" width="230" height="200">
+  </div><br>
+
+  <div class="inner">
+    <p>Yuting Dong: andydong@udel.edu</p>
+    <img src="{{ url_for('static', filename='img/yuting.jpg') }}" width="230" height="200">
+  </div><br>
+
+  <div class="outer">
+    <p>Sean Rubin: seanrubi@udel.edu</p>
+    <img src="{{ url_for('static', filename='img/SeanFace.png') }}" width="230" height="200">
+  </div>
+</div>
+
 
 {% endblock%}
