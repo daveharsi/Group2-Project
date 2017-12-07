@@ -7,6 +7,6 @@ DESCRIPTION:
 DATABASE:
   Two tables: Movies and Actors
   One-to-Many relationship where Actor has many Movies
-  -Movies Table Columns: MovieID, ActorID Name, Year, Lead Actor, Description
-  -Actors Table Columns: ActorID, Name, Age, Gender, Awards
+  -Movies Table Columns: MovieID, ActorID, Title, Year, Lead Actor, Description
+  -Actors Table Columns: ActorID, Name, Age, Gender
   ActorID will be PK in Actors

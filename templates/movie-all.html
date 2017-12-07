@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+{% extends "home.html"%}
+{% block title %}Movies{% endblock %}
+{% block head%}
+  {{ super() }}
+{% endblock%}
+{% block page_content%}
+
+
+<!-- Page Content -->
+<div class="container">
+<br><h1 class="mt-5"> <i class="fa fa-film" aria-hidden="true"></i> Movies</h1>
+    <div class="row bottom-margin">
+    </div>
+    <br>{% if movies %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Actor</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for movie in movies %}
+          <tr>
+              <th scope="row">{{movie.id}}</th>
+              <td>{{movie.title}}</td>
+              <td>{{movie.year}}</td>
+              <td>{{movie.actor.name}}</td>
+              <td>
+              <!--  view description button trigger modal -->
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{movie.id}}">View</button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="{{movie.id}}" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">{{movie.title}}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      {{movie.description}}
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </td>
+          </tr>
+
+          {% endfor%}
+        </tbody>
+      </table>
+    {% else %}
+      <h3>There are no movies in the database yet.</h3>
+    {% endif %}
+</div>
+
+
+
+{% endblock%}

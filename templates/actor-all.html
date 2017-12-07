@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+{% extends "home.html"%}
+{% block title %}All Actors{% endblock %}
+{% block page_content%}
+
+  <!-- Page Content -->
+  <div class="container">
+    <br><h1 class="mt-5"><i class="fa fa-star" aria-hidden="true"></i> Actors:</h1>
+    <div class="row bottom-margin">
+    </div>
+    {% if actors %}
+      <table class="table">
+        <br><thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for actor in actors %}
+          <tr>
+              <th scope="row">{{actor.id}}</th>
+              <td>{{actor.name}}</td>
+              <td>{{actor.age}}</td>
+              <td>{{actor.gender}}</td>
+          </tr>
+          {% endfor%}
+        </tbody>
+      </table>
+    {% else %}
+      <h3>No actors yet.</h3>
+    {% endif %}
+  </div>
+
+{% endblock%}
