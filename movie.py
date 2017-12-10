@@ -67,7 +67,7 @@ def edit_movie(id):
     movie = Movie.query.filter_by(id=id).first()
     actor = Actor.query.all()
     if request.method == 'GET':
-        return render_template('movie-edit.html', movie=movie, actors=actors)
+        return render_template('movie-edit.html', movie=movie, actor=actor)
     if request.method == 'POST':
         # update data based on the form data
         movie.title = request.form['title']
