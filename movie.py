@@ -41,10 +41,44 @@ def show_all_actors():
     return render_template('actor-all.html', actors=actors)
 
 
+@app.route('/actor/edit/<int:id>', methods=['GET', 'POST'])
+def edit_actor(id):
+    actor = Actor.query.filter_by(id=id).first()
+    if request.method == 'GET':
+        return render_template('actor-edit.html', actor=actor)
+    if request.method == 'POST':
+        # update data based on the form data
+        actor.name = request.form['name']
+        actor.age = request.form['age']
+        actor.gender = request.form['gender']
+        # update the database
+        db.session.commit()
+        return redirect(url_for('show_all_actors'))
+
+
 @app.route('/movies')
 def show_all_movies():
     movies = Movie.query.all()
     return render_template('movie-all.html', movies=movies)
+
+
+@app.route('/movie/edit/<int:id>', methods=['GET', 'POST'])
+def edit_movie(id):
+    movie = Movie.query.filter_by(id=id).first()
+    actor = Actor.query.all()
+    if request.method == 'GET':
+        return render_template('movie-edit.html', movie=movie, actors=actors)
+    if request.method == 'POST':
+        # update data based on the form data
+        movie.title = request.form['title']
+        movie.year = request.form['year']
+        movie.description = request.form['description']
+        actor_name = request.form['actor']
+        actor = Actor.query.filter_by(name=actor_name).first()
+        movie.actor = actor
+        # update the database
+        db.session.commit()
+        return redirect(url_for('show_all_movies'))
 
 
 @app.route('/members')

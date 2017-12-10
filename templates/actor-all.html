@@ -26,6 +26,9 @@
               <td>{{actor.name}}</td>
               <td>{{actor.age}}</td>
               <td>{{actor.gender}}</td>
+              <td>
+                <a href="/actor/edit/{{actor.id}}" class="btn btn-success" role="button">Edit</a>
+              </td>
           </tr>
           {% endfor%}
         </tbody>

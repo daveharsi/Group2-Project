@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+{% extends "home.html"%}
+{% block title %}Edit Actor{% endblock %}
+{% block page_content%}
+
+  <!-- Page Content -->
+  <div class="container">
+    <h1 class="mt-5"><i class="fa fa-star" aria-hidden="true"></i> Edit Actor:</h1>
+    <form action="/actor/edit/{{actor.id}}" method="post">
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" name="name" value="{{actor.name}}" required="true">
+      </div>
+      <div class="form-group">
+        <label>Age</label>
+        <textarea class="form-control" name="age" required="true">{{actor.age}}</textarea>
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <input class="form-control" type="text" name="gender" value="{{actor.gender}}" required="true">
+      </div>
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+  </div>
+
+{% endblock%}
