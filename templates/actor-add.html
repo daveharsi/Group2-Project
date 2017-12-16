@@ -41,7 +41,7 @@
           url: "/api/actor/add",
           data: $("#add-actor-form").serialize(),
           success: function(response) {
-            window.location.replace("/artists"); // redirect
+            window.location.replace("/actor"); // redirect
           } // end of success callback function
         }) // end of ajax call
         .fail(function(error) {
